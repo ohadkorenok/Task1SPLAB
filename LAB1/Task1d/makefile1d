@@ -1,0 +1,11 @@
+all: task1dProject
+task1dProject: task1d.o
+		gcc -m32 -g -Wall -o task1d task1d.o
+task1d.o: task1d.c
+		gcc -g -Wall -m32 -c -o task1d.o task1d.c
+#tell make that "clean" is not a file name!
+.PHONY: clean
+
+#Clean the build directory
+clean: 
+	rm -f *.o task1dProject
