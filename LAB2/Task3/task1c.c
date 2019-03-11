@@ -72,50 +72,49 @@ int main(int argc, char **argv) {
                               {"Get string",   my_get},
                               {"Quit",         quit},
                               {NULL, NULL}};
-    int i=0;
+    int quitFlag = 0;
+    int i = 0;
 
 
-    while(menu[i].name !=NULL){
-        i++;
-    }
-    int bounds = i-1;
-    i=0;
-
-
+    /**
+     * replace with sizeof/sizeof*
+     */
+    int bounds = sizeof(menu) / sizeof(*menu) - 2;
 
     fprintf(stdout, "Please Choose a function: ");
-    while(menu[i].name != NULL){
-        fprintf(stdout, "%d) %s\n",i, menu[i].name);
+    while (menu[i].name != NULL) {
+        fprintf(stdout, "%d) %s\n", i, menu[i].name);
         i++;
     }
     fprintf(stdout, "OPTION: ");
-    i=0;
-    int a;
+    i = 0;
+//    char *a;
+    char a[3];
     int b;
-    a=fgetc(stdin);
-    fgetc(stdin);
-    while(a!= EOF){
-        b =(a-48);
-        if(b >=0 && b <bounds){
+    fgets(a, 3, stdin);
+    while (a != NULL) {
+        b = (a[0] - 48);
+        if (b >= 0 && b <= bounds) {
             fprintf(stdout, "Within bounds\n");
-            cptr = map(cptr, 5, menu[b].fun);
+            if(cptr[0] != '\0'){
+                char* arrayPtrToDelete = cptr;
+                cptr = map(arrayPtrToDelete, 5, menu[b].fun);
+                free(arrayPtrToDelete);
+            }else{
+                cptr = map(cptr, 5, menu[b].fun);
+            }
             fprintf(stdout, "Done \n\n");
-        }
-        else{
+        } else {
             fprintf(stdout, "Not within bounds\n");
         }
-        if(b == bounds)
-            menu[b].fun(1);
-
         fprintf(stdout, "Please Choose a function: \n");
-        while(menu[i].name != NULL){
-            fprintf(stdout, "%d) %s\n",i, menu[i].name);
+        while (menu[i].name != NULL) {
+            fprintf(stdout, "%d) %s\n", i, menu[i].name);
             i++;
         }
         fprintf(stdout, "OPTION: \n");
-        a = fgetc(stdin);
-        fprintf(stdout, "%c\n", a);
-
+        fgets(a, 3, stdin);
+        i = 0;
     }
 
 }
