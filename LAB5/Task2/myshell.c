@@ -71,9 +71,8 @@ void execute(cmdLine *pCmdLine) {
         pid = fork();
         fprintf(stderr, "PID: %d\nExecuting command: %s \n", pid, pCmdLine->arguments[0]);
         if (pid == 0) {
-            if (strncmp(pCmdLine->arguments[0], "cd", 2) == 0) {
+            if ((strncmp(pCmdLine->arguments[0], "cd", 2) == 0) || (strncmp(pCmdLine->arguments[0], "procs", 5) ==0))  {
                 _exit(1);
-
             } else {
                 res = execvp(pCmdLine->arguments[0], pCmdLine->arguments);
             }
@@ -85,18 +84,21 @@ void execute(cmdLine *pCmdLine) {
             }
 
         } else {
+            if(strncmp(pCmdLine->arguments[0], "procs", 5)!=0)
             addProcess(&process_ll, pCmdLine, pid);
             if (strncmp(pCmdLine->arguments[0], "cd", 2) == 0) {
                 res = chdir(pCmdLine->arguments[1]);
                 fprintf(stderr, "the cd response is:  %d", res);
                 printf("%s \n", getcwd(pathBuf, PATH_MAX));
             }
+            if(strncmp(pCmdLine->arguments[0], "procs", 5) == 0){
+                printProcessList(&process_ll);
+            }
             if (pCmdLine->blocking == 1) {
                 fprintf(stderr, "Master is waiting... \n");
                 waitpid(pid, &status, 0);
             }
         }
-        printProcessList(&process_ll);
         pCmdLine = pCmdLine->next;
     }
 }
