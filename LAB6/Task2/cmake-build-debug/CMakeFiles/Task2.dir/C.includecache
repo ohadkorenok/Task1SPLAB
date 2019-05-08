@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ohadkoren/SPLABS/LAB6/Task2/main.c
+sys/wait.h
+-
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+

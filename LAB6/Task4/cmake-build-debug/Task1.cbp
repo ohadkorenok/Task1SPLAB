@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Task1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Task1">
+				<Option output="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/libTask1.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 Task1"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Task1/fast">
+				<Option output="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/libTask1.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 Task1/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="taskFile">
+				<Option output="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/taskFile" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 taskFile"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="taskFile/fast">
+				<Option output="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/taskFile" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 taskFile/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ohadkoren/SPLABS/LAB6/Task3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/ohadkoren/SPLABS/LAB6/Task3/LineParser.c">
+			<Option target="taskFile"/>
+		</Unit>
+		<Unit filename="/home/ohadkoren/SPLABS/LAB6/Task3/LineParser.h">
+			<Option target="taskFile"/>
+		</Unit>
+		<Unit filename="/home/ohadkoren/SPLABS/LAB6/Task3/myshell.c">
+			<Option target="Task1"/>
+			<Option target="taskFile"/>
+		</Unit>
+		<Unit filename="/home/ohadkoren/SPLABS/LAB6/Task3/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

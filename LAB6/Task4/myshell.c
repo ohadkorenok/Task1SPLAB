@@ -40,9 +40,9 @@ int main(int argc, char **argv) {
         printf("%s \n", getcwd(pathBuf, PATH_MAX));
         fgets(string, 2048, inputPipe);
         fflush(inputPipe);
-//        if (strncmp(string, "vars", 4) == 0) {
-//            printLinkedList();
-//        } else {
+        if (strncmp(string, "vars", 4) == 0) {
+            printLinkedList();
+        } else {
             if (strncmp(string, "quit", 4) == 0) {
                 exit(1);
             } else {
@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
             }
         }
     }
-//}
+}
 
 
 void execute(cmdLine *pCmdLine) {
@@ -63,9 +63,9 @@ void execute(cmdLine *pCmdLine) {
     int res = 0;
     int cpid2;
     int pipeSupport = 0;
+    replaceCommandLineArguments(pCmdLine);
+
     while (pCmdLine != NULL) {
-
-
         if (pCmdLine->next != NULL) {
             pipeSupport = 1;
             if (pipe(pipefd) == -1) {
@@ -76,7 +76,8 @@ void execute(cmdLine *pCmdLine) {
         pid = fork();
         fprintf(stderr, "PID: %d\nExecuting command: %s \n", pid, pCmdLine->arguments[0]);
         if (pid == 0) {
-            if (strncmp(pCmdLine->arguments[0], "cd", 2) == 0) {
+            if (((strncmp(pCmdLine->arguments[0], "cd", 2) == 0) || (strncmp(pCmdLine->arguments[0], "set", 3) == 0) ||
+                 (strncmp(pCmdLine->arguments[0], "delete", 6) == 0))) {
                 _exit(1);
             } else {
                 if (pCmdLine->inputRedirect != NULL) {
@@ -128,9 +129,20 @@ void execute(cmdLine *pCmdLine) {
                 }
             } else {
                 if (strncmp(pCmdLine->arguments[0], "cd", 2) == 0) {
+                    if (strncmp(pCmdLine->arguments[1], "~", 1) == 0) {
+                        replaceCmdArg(pCmdLine, 1, getenv("HOME"));
+                    }
                     res = chdir(pCmdLine->arguments[1]);
                     fprintf(stderr, "the cd response is:  %d", res);
                     printf("%s \n", getcwd(pathBuf, PATH_MAX));
+                }
+                if (strncmp(pCmdLine->arguments[0], "set", 3) == 0) {
+                    char *varDecl = strdup(pCmdLine->arguments[1]);
+                    char *value = strdup(pCmdLine->arguments[2]);
+                    addPair(varDecl, value);
+                }
+                if (strncmp(pCmdLine->arguments[0], "delete", 6) == 0) {
+                    delete(pCmdLine->arguments[1]);
                 }
                 if (pCmdLine->blocking == 1) {
                     fprintf(stderr, "Master is waiting... \n");

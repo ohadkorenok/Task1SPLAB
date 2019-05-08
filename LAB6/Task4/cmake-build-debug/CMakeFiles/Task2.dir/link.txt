@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Task2.dir/myshell.c.o  -o Task2 

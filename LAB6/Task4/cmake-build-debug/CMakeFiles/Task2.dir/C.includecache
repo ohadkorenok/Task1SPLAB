@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ohadkoren/SPLABS/LAB6/Task3/myshell.c
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+zconf.h
+-
+linux/limits.h
+-
+errno.h
+-
+wait.h
+-
+LineParser.h
+/home/ohadkoren/SPLABS/LAB6/Task3/LineParser.h
+
