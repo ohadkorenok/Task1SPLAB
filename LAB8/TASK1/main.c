@@ -126,9 +126,9 @@ char *intToType(int n) {
         case 3:
             toReturn = "SHT_STRTAB";
             break;
-        case 4:
-            toReturn = "SHT_RELA";
-            break;
+         case 4:
+             toReturn = "SHT_RELA";
+             break;
         case 5:
             toReturn = "SHT_HASH";
             break;
@@ -178,6 +178,7 @@ void PSN(state *s) {
         printf("[%d] %s %p %0X %0X %s\n",i,name, (void *)sectionHeaderTable[i].sh_addr, sectionHeaderTable[i].sh_offset, sectionHeaderTable[i].sh_size, intToType(sectionHeaderTable[i].sh_type));
 
     }
+//  printf("%0x\n",sectionHeaderTable->sh_size);
 
 
 }
@@ -205,59 +206,28 @@ void PS(state *s){
                 char *symbolName = (sectionSymbolStringTable + (symTable[i].st_name));
                 if(symTable[i].st_shndx >= 0xff00){
 
-                    printf("[%d] %p %d %s  %s\n", i, (void *)symTable[i].st_value, symTable[i].st_shndx,"ABS",symbolName);
+                  printf("[%d] %p %d %s  %s\n", i, (void *)symTable[i].st_value, symTable[i].st_shndx,"ABS",symbolName);
+                   // printf("[%d] %p %d %s \n", i, (void *)symTable[i].st_value, symTable[i].st_shndx,"ABS");
+
+//                    printf("[%d] %p %d %s  %s\n", i, 0, symTable[i].st_shndx,"ABS",symbolName);
 
                 }
                 else{
                     char *sectionName = (sectionStringTable + (sectionHeaderTable[symTable[i].st_shndx].sh_name));
                     printf("[%d] %p %d %s  %s\n", i, (void *)symTable[i].st_value, symTable[i].st_shndx,sectionName,symbolName);
+         //           printf("[%d] %p %d %s  \n", i, (void *)symTable[i].st_value, symTable[i].st_shndx,sectionName);
+
                 }
             }
         }
     }
 }
 
-void LC(state * s){
-quit(s);
-};
-
-void RT(state *s){
-    Elf32_Ehdr *header;
-    Elf32_Shdr *sectionHeaderTable;
-    Elf32_Rel *sectionRel;
-    Elf32_Sym *dymSymbolTable;
-    char *sectionSymbolStringTable;
-    header = (Elf32_Ehdr *) map_start;
-    sectionHeaderTable = (Elf32_Shdr *) (map_start + (header->e_shoff));
-    int numberOfSections = header->e_shnum;
-    for (int j = 0; j < numberOfSections; ++j) {
-        if(sectionHeaderTable[j].sh_type==SHT_DYNSYM){
-            dymSymbolTable = (Elf32_Sym *) (map_start + sectionHeaderTable[j].sh_offset);
-            sectionSymbolStringTable = (char *) (map_start+(sectionHeaderTable[sectionHeaderTable[j].sh_link].sh_offset));
-        }
-    }
-    for(int i = 0; i <numberOfSections;i++){
-
-        if((sectionHeaderTable[i].sh_type)==SHT_REL){
-            printf("OFFSET         INFO         TYPE         Sym.value         Sym.name\n");
-            sectionRel = (Elf32_Rel *) (map_start + (sectionHeaderTable[i].sh_offset));
-            int numberOfEntries = sectionHeaderTable[i].sh_size/(sizeof(Elf32_Rel));
-            for(int i = 0; i < numberOfEntries; i++){
-                int index = ELF32_R_SYM(sectionRel[i].r_info);
-                char *symbolName = (sectionSymbolStringTable + (dymSymbolTable[index].st_name));
-                printf("%.8X         %.8X         %.8d         %p         %s\n", sectionRel[i].r_offset,sectionRel[i].r_info,ELF32_R_TYPE(sectionRel[i].r_info),(void *)dymSymbolTable[index].st_value,symbolName);
-            }
-        }
-    }
-
-};
 struct fun_desc menu[] = {{"Toggle Debug Mode",   TDM},
                           {"Examine ELF File",    EEF},
                           {"Print Section Names", PSN},
                           {"Print Symblos",PS},
-                          {"Link Check", LC},
-                          {"Relocation Tables", RT},
-                          {"quit", quit},
+                          {"quit",                quit},
                           {NULL, NULL}};
 
 
