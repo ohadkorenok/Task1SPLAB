@@ -1,0 +1,4 @@
+/users/studs/bsc/2019/koreo/SPLLAB1/Task1SPLAB/LAB9/cmake-build-debug/CMakeFiles/edit_cache.dir
+/users/studs/bsc/2019/koreo/SPLLAB1/Task1SPLAB/LAB9/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/users/studs/bsc/2019/koreo/SPLLAB1/Task1SPLAB/LAB9/cmake-build-debug/CMakeFiles/Task1.dir
+/users/studs/bsc/2019/koreo/SPLLAB1/Task1SPLAB/LAB9/cmake-build-debug/CMakeFiles/taskFile.dir

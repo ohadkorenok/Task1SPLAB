@@ -11,7 +11,6 @@
 #define RUNNING 1
 #define SUSPENDED 0
 
-
 typedef struct process {
     cmdLine *cmd;                         /* the parsed command line*/
     pid_t pid;                          /* the process id that is running the command*/
@@ -19,10 +18,7 @@ typedef struct process {
     struct process *next;                      /* next process in chain */
 } process;
 
-//process* node = NULL;
-//process** process_ll = &node;
 process *process_ll = NULL;
-int *statusCurrent;
 
 void execute(cmdLine *pCmdLine);
 
@@ -54,6 +50,7 @@ int main(int argc, char **argv) {
         fgets(string, 2048, inputPipe);
         fflush(inputPipe);
         if (strncmp(string, "quit", 4) == 0) {
+            freeProcessList(process_ll);
             exit(1);
         } else {
             cmdLines = parseCmdLines(string);
@@ -70,21 +67,24 @@ void execute(cmdLine *pCmdLine) {
     int res = 0;
     while (pCmdLine != NULL) {
         pid = fork();
-        fprintf(stderr, "PID: %d\nExecuting command: %s \n", pid, pCmdLine->arguments[0]);
+//        fprintf(stderr, "PID: %d\nExecuting command: %s \n", pid, pCmdLine->arguments[0]);
         if (pid == 0) {
             if ((strncmp(pCmdLine->arguments[0], "cd", 2) == 0) ||
                 (strncmp(pCmdLine->arguments[0], "procs", 5) == 0) ||
                 (strncmp(pCmdLine->arguments[0], "kill", 4) == 0) ||
                 (strncmp(pCmdLine->arguments[0], "wake", 4) == 0) ||
                     (strncmp(pCmdLine->arguments[0], "suspend", 7) == 0)) {
+                freeCmdLines(pCmdLine);
                 _exit(1);
             } else {
                 res = execvp(pCmdLine->arguments[0], pCmdLine->arguments);
             }
             if (res < 0) {
                 perror("Error:  ");
+                freeCmdLines(pCmdLine);
                 _exit(errno);
             } else {
+                freeCmdLines(pCmdLine);
                 _exit(1);
             }
 
@@ -120,10 +120,9 @@ void execute(cmdLine *pCmdLine) {
                 printProcessList(&process_ll);
             }
             if (pCmdLine->blocking == 1) {
-                fprintf(stderr, "Master is waiting... \n");
+//                fprintf(stderr, "Master is waiting... \n");
                 waitpid(pid, &status, 0);
             }
-//            updateProcessList(&process_ll);
         }
         pCmdLine = pCmdLine->next;
     }

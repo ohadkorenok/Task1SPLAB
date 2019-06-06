@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/users/studs/bsc/2019/koreo/SPLLAB1/Task1SPLAB/LAB9/main.c
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+elf.h
+-
+sys/mman.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+unistd.h
+-
+
